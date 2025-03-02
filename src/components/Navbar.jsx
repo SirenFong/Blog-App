@@ -1,14 +1,23 @@
-import React, { useState } from "react";
+import { useState } from "react";
+// import { IKImage } from "imagekitio-react";
+import Image from "./Image";
+import { Link } from "react-router-dom";
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  UserButton,
+} from "@clerk/clerk-react";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   return (
     <div className="w-full h-16 md:h-20 flex items-center justify-between">
       {/* LOGO */}
-      <div className="flex items-center gap-4 text-2xl font-bold">
-        <img src="/logo.png" className="w-32 h-32 p-8" alt="" />
+      <Link to="/" className="flex items-center gap-4 text-2xl font-bold">
+        <Image src="logo.png" alt="Hakate" w={64} h={64} p={8} />
         <span className="">Blog Thanh và Su</span>
-      </div>
+      </Link>
 
       {/* MOBILE TOGGLE AND MENU */}
       <div className="md:hidden flex items-center">
@@ -20,25 +29,39 @@ const Navbar = () => {
         </div>
         {/* MOBILE LINK LIST */}
         <div
-          className={`w-full h-screen flex flex-col items-center justify-center absolute top-16 bg-red-700 transition-all ease-in-out ${
-            open ? "right-0" : "-right-[100%]"
+          className={`w-full h-screen flex flex-col items-center gap-8 font-medium text-lg justify-center absolute top-16 bg-[#e6e6ff] transition-all ease-in-out ${
+            open ? "right-0" : "-right-full"
           }`}
         >
-          menu
+          <Link to="/">Trang chủ</Link>
+          <Link to="/">Nổi bật</Link>
+          <Link to="/">Nhiều lượt xem</Link>
+          <Link to="/">About</Link>
+          <Link to="/">
+            <button className="py-2 px-4 rounded-3xl bg-green-800 text-white">
+              Đăng nhập 👋
+            </button>
+          </Link>
         </div>
       </div>
 
       {/* DESKTOP */}
       <div className="hidden md:flex items-center gap-8 xl:gap-12 font-medium">
-        <a href="/">Trang chủ</a>
-        <a href="/">Nổi bật</a>
-        <a href="/">Nhiều lượt xem</a>
-        <a href="/">About</a>
-        <a href="/">
+        <Link to="/">Trang chủ</Link>
+        <Link to="/">Nổi bật</Link>
+        <Link to="/">Nhiều lượt xem</Link>
+        <Link to="/">About</Link>
+        
+        <SignedOut>
+        <Link to="/login">
           <button className="py-2 px-4 rounded-3xl bg-green-800 text-white">
-            Login 👋
+            Đăng nhập 👋
           </button>
-        </a>
+        </Link>
+        </SignedOut>
+        <SignedIn>
+          <UserButton />
+        </SignedIn>
       </div>
     </div>
   );
