@@ -35,12 +35,6 @@ const MainCategories = () => {
         >
           Góc của chàng
         </Link>
-        <Link
-          to="/posts?cat=pet-fav"
-          className="hover:bg-green-50 rounded-full px-4 py-2"
-        >
-          Động vật yêu thích
-        </Link>
       </div>
       {/* Search */}
       <span className="text-xl font-medium">|</span>
@@ -59,7 +53,8 @@ const MainCategories = () => {
         <input
           type="text"
           placeholder="Tìm kiếm..."
-          className="bg-transparent outline-none"></input>
+          className="bg-transparent outline-none"
+        ></input>
       </div>
     </div>
   );
