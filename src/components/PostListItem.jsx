@@ -15,7 +15,7 @@ const PostListItem = () => {
       {/*details*/}
       <div className="w-full xl:w-1/4">
         <Link to="/test" className="text-xl xl:text-2xl font-semibold hover:text-green-800">
-          Đây là nơi bắt đầu
+          Anh yêu em
         </Link>
         <div className="mt-2 flex flex-col xl:flex-row xl:flex-wrap items-start xl:items-center gap-2 text-gray-600">
           <span>Tạo bởi</span>
